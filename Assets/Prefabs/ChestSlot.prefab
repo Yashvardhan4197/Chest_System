@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9118490042760156229}
   - component: {fileID: 7383769099792830553}
   - component: {fileID: 4401601540593311580}
+  - component: {fileID: 5973603871732986422}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -76,6 +77,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &5973603871732986422
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888793994933958782}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1938367003537404532
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,6 +309,7 @@ GameObject:
   - component: {fileID: 2533462760416451934}
   - component: {fileID: 8897773927430004331}
   - component: {fileID: 8839422689049195900}
+  - component: {fileID: 2420584050779425083}
   m_Layer: 5
   m_Name: AmountSection
   m_TagString: Untagged
@@ -362,6 +376,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &2420584050779425083
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3804457482800318891}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3948348373532782695
 GameObject:
   m_ObjectHideFlags: 0
