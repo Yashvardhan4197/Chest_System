@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 42208225}
   - component: {fileID: 42208224}
   - component: {fileID: 42208223}
+  - component: {fileID: 42208226}
   m_Layer: 5
   m_Name: Currency
   m_TagString: Untagged
@@ -222,6 +223,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42208221}
   m_CullTransparentMesh: 1
+--- !u!114 &42208226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42208221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39215ca4684e25a45bf8ba502fd28f96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinAmountText: {fileID: 1229993000}
+  gemAmountText: {fileID: 1965499620}
 --- !u!1 &151203185
 GameObject:
   m_ObjectHideFlags: 0
@@ -3412,6 +3427,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1525485409}
   m_CullTransparentMesh: 1
+--- !u!1 &1526933755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1526933756}
+  - component: {fileID: 1526933757}
+  m_Layer: 0
+  m_Name: GameService
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1526933756
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526933755}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 293.0978, y: 231.95285, z: 2.2026358}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1526933757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526933755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a838d7100b24440a1b938f556fd99a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currencyView: {fileID: 42208226}
 --- !u!1 &1533626431
 GameObject:
   m_ObjectHideFlags: 0
@@ -4987,3 +5047,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 534843236}
   - {fileID: 1482508313}
+  - {fileID: 1526933756}
