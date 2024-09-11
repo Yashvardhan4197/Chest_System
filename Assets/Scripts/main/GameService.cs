@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class GameService : MonoBehaviour
 {
+
+    //Data
+    [SerializeField] List<ChestScriptableObject> chestTypeData;
+    [SerializeField] GameObject chestSlotPrefab;
+    [SerializeField] RectTransform chestSlotParent;
+    [SerializeField] int chestSlots = 1;
+
     //Views
     [SerializeField] CurrencyView currencyView;
 
@@ -13,5 +20,6 @@ public class GameService : MonoBehaviour
     private void Start()
     {
         UIService=new UIService(currencyView);
+        chestService = new ChestService(chestTypeData,chestSlots,chestSlotPrefab,chestSlotParent);
     }
 }
