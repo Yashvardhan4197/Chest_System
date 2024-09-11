@@ -1,4 +1,4 @@
-using System.Collections;
+
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,7 +33,30 @@ public class ChestService
         }
     }
 
-    public void Spawn
+    public void SpawnChest()
+    {
+        int emptySlotIndex = -1;
+        for(int i=0;i<ChestsSlots.Count;i++)
+        {
+            if (ChestsSlots[i].isFilled == false)
+            {
+                emptySlotIndex = i;
+                break;
+            }
+        }
+
+        
+    }
+
+    private ChestTypes GetRandomChestType()
+    {
+        ChestTypes randomChest=ChestTypes.COMMON;
+        return randomChest;
+    }
 
     public ChestController GetChestController()=>chestController;
+
+    public List<ChestController> ReturnChests() => EarnedChests;
+
+
 }

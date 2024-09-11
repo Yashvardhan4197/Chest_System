@@ -2,24 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameService : MonoBehaviour
+public class GameService : GenericMonoSingleton<GameService>
 {
 
     //Data
     [SerializeField] List<ChestScriptableObject> chestTypeData;
     [SerializeField] GameObject chestSlotPrefab;
     [SerializeField] RectTransform chestSlotParent;
-    [SerializeField] int chestSlots = 1;
+    [SerializeField] int chestSlots;
+    public int ChestSlots { get { return chestSlots; } }
 
     //Views
     [SerializeField] CurrencyView currencyView;
-
+    [SerializeField] SpawnView spawnView;
+    [SerializeField] PopUpView popUpView;
     //Services
-    public UIService UIService;
-    public ChestService chestService;
+    public UIService UIService { get; private set; }
+    public ChestService chestService { get; private set; }
     private void Start()
     {
-        UIService=new UIService(currencyView);
+        UIService=new UIService(currencyView,spawnView,popUpView);
         chestService = new ChestService(chestTypeData,chestSlots,chestSlotPrefab,chestSlotParent);
     }
 }

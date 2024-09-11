@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class ChestView : MonoBehaviour
 {
-    private bool isFilled;
     private ChestController chestController=null;
     [SerializeField] CanvasGroup ChestObjectCanvasGroup;
+    public bool isFilled;
 
     private void Start()
     {
