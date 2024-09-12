@@ -333,7 +333,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3668539657919905377}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1416,4 +1416,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bb367b4e1aef5f42b432c068a48e0ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChestObjectCanvasGroup: {fileID: 5241594170037178907}
+  chestObjectCanvasGroup: {fileID: 5241594170037178907}
+  chestImage: {fileID: 6852286134844398901}
+  chestName: {fileID: 6480664516070303729}
+  timerUI: {fileID: 1858629621959118771}
+  chestType: 0

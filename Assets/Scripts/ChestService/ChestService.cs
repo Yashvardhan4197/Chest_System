@@ -33,25 +33,30 @@ public class ChestService
         }
     }
 
+    private ChestTypes GetRandomChestType()
+    {
+        int randIndex=UnityEngine.Random.Range(1,chestData.Count);
+        ChestTypes randomChest = (ChestTypes)randIndex;
+        return randomChest;
+    }
+
     public void SpawnChest()
     {
         int emptySlotIndex = -1;
-        for(int i=0;i<ChestsSlots.Count;i++)
+        for (int i = 0; i < ChestsSlots.Count; i++)
         {
-            if (ChestsSlots[i].isFilled == false)
+            if (ChestsSlots[i].chestType == ChestTypes.None)
             {
                 emptySlotIndex = i;
                 break;
             }
         }
-
-        
-    }
-
-    private ChestTypes GetRandomChestType()
-    {
-        ChestTypes randomChest=ChestTypes.COMMON;
-        return randomChest;
+        if (emptySlotIndex != -1)
+        {
+            ChestView currentChestView = ChestsSlots[emptySlotIndex];
+            ChestController newChestController = new ChestController(currentChestView, chestData[GetRandomChestType()]);
+            EarnedChests.Add(newChestController);
+        }
     }
 
     public ChestController GetChestController()=>chestController;
