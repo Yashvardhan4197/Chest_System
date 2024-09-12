@@ -6,6 +6,8 @@ public class ChestScriptableObject : ScriptableObject
 {
     public ChestTypes ChestType;
     public string ChestName;
-    public Sprite ChestSprite;
+    public Sprite LockedChestSprite;
+    public Sprite UnlockingChestSprite;
+    public Sprite UnlockedChestSprite;
     public int TimerValue;
 }

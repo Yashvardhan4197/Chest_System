@@ -8,6 +8,10 @@ public class PopUpView : MonoBehaviour
     [SerializeField] CanvasGroup ChestAlertPopUp;
     [SerializeField] Button ChestFullAlertCloseButton;
 
+    [SerializeField] CanvasGroup ChestUnlockPopUp;
+    [SerializeField] Button OpenWithCoins;
+    [SerializeField] Button OpenWithGems;
+
     private void Start()
     {
         ChestFullAlertCloseButton.onClick.AddListener(ChestFullAlertButtonPressed);

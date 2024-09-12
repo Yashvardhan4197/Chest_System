@@ -12,12 +12,24 @@ public class ChestView : MonoBehaviour
     [SerializeField] Image chestImage;
     [SerializeField] TextMeshProUGUI chestName;
     [SerializeField] TextMeshProUGUI timerUI;
+    [SerializeField] Button ChestButton;
     private float timerTime;
     [HideInInspector] public ChestTypes chestType;
 
     private void Start()
     {
         ResetSlot();
+        ChestButton.onClick.AddListener(ChestButtonPressed);
+    }
+
+    private void ChestButtonPressed()
+    {
+        chestController?.OnChestButtonPressed();
+    }
+
+    private void Update()
+    {
+        chestController?.Update();
     }
 
     private void ResetSlot()

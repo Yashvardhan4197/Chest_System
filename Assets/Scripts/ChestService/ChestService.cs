@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,7 +36,7 @@ public class ChestService
 
     private ChestTypes GetRandomChestType()
     {
-        int randIndex=UnityEngine.Random.Range(1,chestData.Count);
+        int randIndex=UnityEngine.Random.Range(1,Enum.GetNames(typeof(ChestTypes)).Length);
         ChestTypes randomChest = (ChestTypes)randIndex;
         return randomChest;
     }
