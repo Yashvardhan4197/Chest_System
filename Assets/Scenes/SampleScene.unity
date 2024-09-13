@@ -367,6 +367,7 @@ GameObject:
   - component: {fileID: 151203186}
   - component: {fileID: 151203189}
   - component: {fileID: 151203188}
+  - component: {fileID: 151203190}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -388,10 +389,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2017858440}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -345.67212, y: -0.0000073186}
-  m_SizeDelta: {x: 0, y: 234.1785}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 0.0004297066, y: 122.99999}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &151203188
 MonoBehaviour:
@@ -405,8 +406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalFit: 1
-  m_VerticalFit: 0
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
 --- !u!114 &151203189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,6 +434,26 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &151203190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151203185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 303.5
+  m_PreferredHeight: 243.7
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &250094524
 GameObject:
   m_ObjectHideFlags: 0
@@ -3538,7 +3559,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 83adda5581d799b45b6a61c8455330bf, type: 2}
   chestSlotPrefab: {fileID: 8874792869123287747, guid: 3ee7341bd70e2c3479659eb7d8d64c06, type: 3}
   chestSlotParent: {fileID: 151203186}
-  chestSlots: 4
+  chestSlots: 10
   currencyView: {fileID: 42208226}
   spawnView: {fileID: 250094530}
   popUpView: {fileID: 1469620586}
