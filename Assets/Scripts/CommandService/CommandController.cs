@@ -24,7 +24,7 @@ public class CommandController
         if(states.Count > 0)
         {
             IState topState= states.Pop();
-            if (topState.Owner.chestStateMachine.currentState.currentChestState != ChestStates.COLLECTED)
+            if (topState.Owner.chestStateMachine!=null)//topState.Owner.chestStateMachine.currentState.currentChestState != ChestStates.COLLECTED)
             {
                 int currentGemAmount = GameService.Instance.UIService.GetCurrencyController().GemAmount;
                 currentGemAmount += topState.Owner.GetGemCurrentPrice();

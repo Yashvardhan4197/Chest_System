@@ -26,6 +26,7 @@ public class CollectedState: IState
     {
         Owner.chestView.ResetSlot();
         GameService.Instance.chestService.ReturnChests().Remove(Owner);
+        Owner.DestroyController();
     }
 
     private void AddReward()
