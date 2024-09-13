@@ -25,6 +25,7 @@ public class UnlockedState: IState
     public void OnButtonPressed()
     {
         stateMachine.ChangeState(ChestStates.COLLECTED);
+
     }
 
     public void OnStateEnter()
