@@ -9,19 +9,27 @@ public class UnlockingState: IState
     public ChestStates currentChestState { get; set; }
     private float timer;
     private bool timerRunning=true;
+    private bool FirstTime = true;
+
     private void InitializeData()
     {
         Owner.chestView.SetChestImage(Owner.chestData.UnlockingChestSprite);
         Owner.chestView.SetChestName(Owner.chestData.ChestName);
         Owner.chestView.chestType = Owner.chestData.ChestType;
         Owner.chestView.UpdateSlot();
-        timer=Owner.chestData.TimerValue;
+        if (FirstTime)
+        {
+            timer = Owner.chestData.TimerValue;
+            FirstTime = false; 
+        }
+        
     }
 
     public UnlockingState(ChestStateMachine stateMachine,ChestStates chestState)
     {
         this.stateMachine = stateMachine;
         currentChestState = chestState;
+        
     }
 
     public void OnButtonPressed()
