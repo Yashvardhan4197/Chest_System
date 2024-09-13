@@ -5,8 +5,11 @@ public class ChestController
 {
     public ChestView chestView;
     public ChestScriptableObject chestData;
-    private ChestStateMachine chestStateMachine;
+    public ChestStateMachine chestStateMachine;
     private TimeSpan chestTimeSpan;
+    private int GemPrice;
+
+    private static bool CanOpen = true;
     public ChestController(ChestView chestView,ChestScriptableObject chestData)
     {
         this.chestView = chestView;
@@ -25,11 +28,40 @@ public class ChestController
 
     public void Update()
     {
-        chestStateMachine.Update();
+        chestStateMachine?.Update();
     }
 
     public void OnChestButtonPressed()
     {
         chestStateMachine.currentState.OnButtonPressed();
+    }
+
+    public string CalculateGemPrice(float timer)
+    {
+        float temp =timer / 10;
+        int price=0;
+        if (timer % 10 <= 5)
+        {
+            price = (int)temp;
+        }
+        else
+        {
+            price = (int)temp+1;
+        }
+        GemPrice= price;
+        return price.ToString();
+    }
+
+    public void SetCanOpen(bool canOpen)
+    {
+        CanOpen = canOpen;
+    }
+
+    public bool GetCanOpen() => CanOpen;
+
+    public int GetGemCurrentPrice()=>GemPrice;
+
+    public void DestroyController(ChestController controller)
+    {
     }
 }

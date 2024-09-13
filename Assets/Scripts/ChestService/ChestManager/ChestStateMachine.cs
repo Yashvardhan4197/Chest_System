@@ -17,8 +17,8 @@ public class ChestStateMachine
     public void CreateStates()
     {
         States.Add(ChestStates.LOCKED,new LockedState(this));
-        States.Add(ChestStates.UNLOCKING,new UnlockingState());
-        States.Add(ChestStates.UNLOCKED,new UnlockedState());
+        States.Add(ChestStates.UNLOCKING,new UnlockingState(this));
+        States.Add(ChestStates.UNLOCKED,new UnlockedState(this));
         States.Add(ChestStates.COLLECTED,new CollectedState());
     }
 

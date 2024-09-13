@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64bc16480f4cc2c4493eebdff89a5665, type: 3}
   m_Name: LEGENDARY
   m_EditorClassIdentifier: 
-  ChestType: 3
+  ChestType: 4
   ChestName: Legendary
-  ChestSprite: {fileID: 21300000, guid: 06e824024aa0b4642b16952bee512d35, type: 3}
+  LockedChestSprite: {fileID: 21300000, guid: 06e824024aa0b4642b16952bee512d35, type: 3}
+  UnlockingChestSprite: {fileID: 21300000, guid: cf109214673ce894b930aaeaaef50935, type: 3}
+  UnlockedChestSprite: {fileID: 21300000, guid: 17f120431a79f0b41962addd901aed4b, type: 3}
   TimerValue: 180
+  ChestCoinPrice: 200

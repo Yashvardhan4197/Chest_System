@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64bc16480f4cc2c4493eebdff89a5665, type: 3}
   m_Name: RARE
   m_EditorClassIdentifier: 
-  ChestType: 1
+  ChestType: 2
   ChestName: Rare
-  ChestSprite: {fileID: 21300000, guid: 8ca2ae4075389f94a89f9f7c931feb10, type: 3}
+  LockedChestSprite: {fileID: 21300000, guid: 5b5ea57ab04c26d4aa762868ab534c42, type: 3}
+  UnlockingChestSprite: {fileID: 21300000, guid: 32857ba48dc2998429d7069c0162bb51, type: 3}
+  UnlockedChestSprite: {fileID: 21300000, guid: e8f092a9e91e4064dbdfd53c09923aae, type: 3}
   TimerValue: 30
+  ChestCoinPrice: 70

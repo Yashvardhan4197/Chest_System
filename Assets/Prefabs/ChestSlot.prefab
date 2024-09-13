@@ -1420,5 +1420,7 @@ MonoBehaviour:
   chestImage: {fileID: 6852286134844398901}
   chestName: {fileID: 6480664516070303729}
   timerUI: {fileID: 1858629621959118771}
+  chestCoinPrice: {fileID: 8744397701668433697}
+  chestGemPrice: {fileID: 6460330611220277016}
   ChestButton: {fileID: 7918730928382472725}
   chestType: 0

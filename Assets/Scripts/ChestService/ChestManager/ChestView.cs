@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,8 +10,10 @@ public class ChestView : MonoBehaviour
     [SerializeField] Image chestImage;
     [SerializeField] TextMeshProUGUI chestName;
     [SerializeField] TextMeshProUGUI timerUI;
+    [SerializeField] TextMeshProUGUI chestCoinPrice;
+    [SerializeField] TextMeshProUGUI chestGemPrice;
     [SerializeField] Button ChestButton;
-    private float timerTime;
+    //private float timerTime;
     [HideInInspector] public ChestTypes chestType;
 
     private void Start()
@@ -32,7 +32,7 @@ public class ChestView : MonoBehaviour
         chestController?.Update();
     }
 
-    private void ResetSlot()
+    public void ResetSlot()
     {
         chestController = null;
         chestType = ChestTypes.None;
@@ -53,9 +53,18 @@ public class ChestView : MonoBehaviour
 
     public void SetChestName(string chestName)=>this.chestName.text= chestName;
 
+    public void SetChestPrice(string coinPrice, string gemPrice)
+    {
+        chestCoinPrice.text = coinPrice;
+        chestGemPrice.text = gemPrice;
+    }
     public void SetTimerValue(float timerValue)
     {
-        timerTime = timerValue;
-        chestController?.SetTimer(timerUI, timerTime);
+        chestController?.SetTimer(timerUI, timerValue);
+    }
+
+    public void SetChestUnlocked()
+    {
+
     }
 }

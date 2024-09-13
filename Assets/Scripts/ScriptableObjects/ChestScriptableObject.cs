@@ -10,4 +10,5 @@ public class ChestScriptableObject : ScriptableObject
     public Sprite UnlockingChestSprite;
     public Sprite UnlockedChestSprite;
     public int TimerValue;
+    public int ChestCoinPrice;
 }

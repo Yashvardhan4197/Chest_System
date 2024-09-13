@@ -1,4 +1,6 @@
 
+using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,12 +11,55 @@ public class PopUpView : MonoBehaviour
     [SerializeField] Button ChestFullAlertCloseButton;
 
     [SerializeField] CanvasGroup ChestUnlockPopUp;
-    [SerializeField] Button OpenWithCoins;
-    [SerializeField] Button OpenWithGems;
+    [SerializeField] Button OpenWithCoinsButton;
+    [SerializeField] Button OpenWithGemsButton;
+    [SerializeField] Button CloseChestUnlockButton;
+
+    [SerializeField] CanvasGroup ChestUnlockingPopUp;
+    [SerializeField] Button InstantGemButton;
+    [SerializeField] Button CloseUnlockingPopUp;
+
+    [SerializeField] CanvasGroup RewardPopUp;
+    [SerializeField] TextMeshProUGUI RewardPopUpText;
+    [SerializeField] Button CloseRewardPopUp;
 
     private void Start()
     {
         ChestFullAlertCloseButton.onClick.AddListener(ChestFullAlertButtonPressed);
+
+        OpenWithCoinsButton.onClick.AddListener(OnCoinButtonClicked);
+        OpenWithGemsButton.onClick.AddListener(OnGemsButtonClicked);
+        CloseChestUnlockButton.onClick.AddListener(CloseChestUnlockSection);
+
+        InstantGemButton.onClick.AddListener(OnGemsButtonClicked);
+        CloseUnlockingPopUp.onClick.AddListener(CloseChestUnlockingSection);
+
+        CloseRewardPopUp.onClick.AddListener(CloseRewardPopUpSection);
+    }
+
+    private void CloseRewardPopUpSection()
+    {
+        popUpController.CloseRewardPopUp();
+    }
+
+    private void CloseChestUnlockingSection()
+    {
+        popUpController.CloseChestUnlockingPopUp();
+    }
+
+    private void OnGemsButtonClicked()
+    {
+        popUpController.OnGemsButtonClicked();
+    }
+
+    private void CloseChestUnlockSection()
+    {
+        popUpController.CloseChestUnlockPopUp();
+    }
+
+    private void OnCoinButtonClicked()
+    {
+        popUpController.OnCoinsButtonClicked();
     }
 
     private void ChestFullAlertButtonPressed()
@@ -25,7 +70,16 @@ public class PopUpView : MonoBehaviour
     public void SetController(PopUpController popUpController)
     {
         this.popUpController = popUpController;
-    }
+    }   
+
 
     public CanvasGroup GetChestFullAlertPopUp() => ChestAlertPopUp;
+
+    public CanvasGroup GetChestUnlockSectionPopUp() => ChestUnlockPopUp;
+
+    public CanvasGroup GetChestUnlockingPopUp() => ChestUnlockingPopUp; 
+
+    public CanvasGroup GetRewardPopUp() => RewardPopUp;
+
+    public TextMeshProUGUI getRewardPopUpText() => RewardPopUpText;
 }

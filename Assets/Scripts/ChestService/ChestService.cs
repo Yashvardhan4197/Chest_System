@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ChestService
 {
-    private ChestController chestController;
+    //private ChestController chestController;
     private Dictionary<ChestTypes, ChestScriptableObject> chestData=new Dictionary<ChestTypes, ChestScriptableObject>();
     private List<ChestView> ChestsSlots=new List<ChestView>();
     private List<ChestController> EarnedChests=new List<ChestController>();
@@ -60,7 +60,7 @@ public class ChestService
         }
     }
 
-    public ChestController GetChestController()=>chestController;
+    //public ChestController GetChestController()=>chestController;
 
     public List<ChestController> ReturnChests() => EarnedChests;
 

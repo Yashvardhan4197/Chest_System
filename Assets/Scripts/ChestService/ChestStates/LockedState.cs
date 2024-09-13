@@ -24,13 +24,9 @@ public class LockedState : IState
         Owner.chestView.SetChestImage(Owner.chestData.LockedChestSprite);
         Owner.chestView.SetChestName(Owner.chestData.ChestName);
         Owner.chestView.SetTimerValue(Owner.chestData.TimerValue);
+        Owner.chestView.SetChestPrice(Owner.chestData.ChestCoinPrice.ToString(),Owner.CalculateGemPrice(Owner.chestData.TimerValue));
         Owner.chestView.chestType = Owner.chestData.ChestType;
         Owner.chestView.UpdateSlot();
-    }
-
-    public void SetButtonLogic()
-    {
-
     }
 
     public void OnStateExit()
@@ -45,6 +41,11 @@ public class LockedState : IState
 
     public void OnButtonPressed()
     {
-        stateMachine.ChangeState(ChestStates.UNLOCKING);
+        if (Owner.GetCanOpen())
+        {
+            GameService.Instance.UIService.GetPopUpController().OpenChestUnlockPopUp();
+            GameService.Instance.UIService.GetPopUpController().SetCurrentChestController(Owner);
+        }
+        //stateMachine.ChangeState(ChestStates.UNLOCKING);
     }
 }
