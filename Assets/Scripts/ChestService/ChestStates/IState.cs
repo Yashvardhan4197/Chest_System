@@ -6,6 +6,7 @@ using UnityEngine;
 public interface IState
 {
     public ChestController Owner { get; set; }
+    public ChestStates currentChestState { get; set; }
     public void OnStateEnter();
     public void OnStateExit();
     public void Update();

@@ -16,10 +16,10 @@ public class ChestStateMachine
 
     public void CreateStates()
     {
-        States.Add(ChestStates.LOCKED,new LockedState(this));
-        States.Add(ChestStates.UNLOCKING,new UnlockingState(this));
-        States.Add(ChestStates.UNLOCKED,new UnlockedState(this));
-        States.Add(ChestStates.COLLECTED,new CollectedState());
+        States.Add(ChestStates.LOCKED,new LockedState(this,ChestStates.LOCKED));
+        States.Add(ChestStates.UNLOCKING,new UnlockingState(this,ChestStates.UNLOCKING));
+        States.Add(ChestStates.UNLOCKED,new UnlockedState(this,ChestStates.UNLOCKED));
+        States.Add(ChestStates.COLLECTED,new CollectedState(this,ChestStates.COLLECTED));
     }
 
     private void SetOwner()

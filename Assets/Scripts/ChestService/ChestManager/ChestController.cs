@@ -61,7 +61,9 @@ public class ChestController
 
     public int GetGemCurrentPrice()=>GemPrice;
 
-    public void DestroyController(ChestController controller)
+    public void DestroyController()
     {
+        chestStateMachine = null;
+        chestView.SetController(null);
     }
 }

@@ -16,12 +16,16 @@ public class GameService : GenericMonoSingleton<GameService>
     [SerializeField] CurrencyView currencyView;
     [SerializeField] SpawnView spawnView;
     [SerializeField] PopUpView popUpView;
+    [SerializeField] CommandView commandView;
     //Services
     public UIService UIService { get; private set; }
     public ChestService chestService { get; private set; }
+
+    public CommandController commandService { get; private set; }
     private void Start()
     {
         UIService=new UIService(currencyView,spawnView,popUpView);
         chestService = new ChestService(chestTypeData,chestSlots,chestSlotPrefab,chestSlotParent);
+        commandService = new CommandController(commandView);
     }
 }

@@ -1,12 +1,20 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CollectedState: IState
 {
     public ChestController Owner { get; set; }
-
+    public ChestStates currentChestState { get; set; }
+    private ChestStateMachine stateMachine;
     private int coinReward=0;
     private int gemReward=0;
+
+    public CollectedState(ChestStateMachine stateMachine, ChestStates chestState)
+    {
+        this.stateMachine = stateMachine;
+        currentChestState = chestState;
+    }
 
     public void OnButtonPressed()
     {

@@ -6,11 +6,13 @@ using UnityEngine;
 public class UnlockedState: IState
 {
     public ChestController Owner { get; set; }
+    public ChestStates currentChestState { get; set; }
     private ChestStateMachine stateMachine;
 
-    public UnlockedState(ChestStateMachine stateMachine)
+    public UnlockedState(ChestStateMachine stateMachine,ChestStates chestState)
     {
         this.stateMachine = stateMachine;
+        currentChestState = chestState;
     }
 
     private void InitializeData()

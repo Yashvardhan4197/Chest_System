@@ -8,10 +8,13 @@ public class LockedState : IState
 {
     public ChestController Owner { get; set; }
     private ChestStateMachine stateMachine;
+    public ChestStates currentChestState { get; set; }
 
-    public LockedState(ChestStateMachine chestStateMachine)
+
+    public LockedState(ChestStateMachine chestStateMachine,ChestStates chestState)
     {
         stateMachine = chestStateMachine;
+        currentChestState = chestState;
     }
 
     public void OnStateEnter()

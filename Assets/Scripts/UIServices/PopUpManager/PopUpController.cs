@@ -98,7 +98,8 @@ public class PopUpController
         {
             currentGemAmount-= chestController.GetGemCurrentPrice();
             GameService.Instance.UIService.GetCurrencyController().SetGemAmount(currentGemAmount);
-            chestController.chestStateMachine.ChangeState(ChestStates.UNLOCKED);
+            //chestController.chestStateMachine.ChangeState(ChestStates.UNLOCKED);
+            GameService.Instance.commandService.InvokeState(chestController.chestStateMachine.currentState);
             CloseChestUnlockingPopUp();
             CloseChestUnlockPopUp();
 

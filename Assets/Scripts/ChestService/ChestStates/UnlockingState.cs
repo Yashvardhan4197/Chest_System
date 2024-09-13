@@ -6,6 +6,7 @@ public class UnlockingState: IState
 {
     public ChestController Owner { get; set; }
     private ChestStateMachine stateMachine;
+    public ChestStates currentChestState { get; set; }
     private float timer;
     private bool timerRunning=true;
     private void InitializeData()
@@ -17,7 +18,11 @@ public class UnlockingState: IState
         timer=Owner.chestData.TimerValue;
     }
 
-    public UnlockingState(ChestStateMachine stateMachine)=>this.stateMachine = stateMachine;
+    public UnlockingState(ChestStateMachine stateMachine,ChestStates chestState)
+    {
+        this.stateMachine = stateMachine;
+        currentChestState = chestState;
+    }
 
     public void OnButtonPressed()
     {
