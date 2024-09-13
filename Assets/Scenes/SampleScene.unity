@@ -232,6 +232,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinAmountText: {fileID: 1229993000}
   gemAmountText: {fileID: 1965499620}
+  startingCoinAmount: 200
+  startingGemAmount: 12
 --- !u!1 &114896714
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,13 +867,14 @@ GameObject:
   - component: {fileID: 328032974}
   - component: {fileID: 328032976}
   - component: {fileID: 328032975}
+  - component: {fileID: 328032977}
   m_Layer: 5
   m_Name: RewardFromChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &328032974
 RectTransform:
   m_ObjectHideFlags: 0
@@ -931,6 +934,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 328032973}
   m_CullTransparentMesh: 1
+--- !u!225 &328032977
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328032973}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &420935104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2997,6 +3012,9 @@ MonoBehaviour:
   ChestUnlockingPopUp: {fileID: 797946265}
   InstantGemButton: {fileID: 114896716}
   CloseUnlockingPopUp: {fileID: 1568422473}
+  RewardPopUp: {fileID: 328032977}
+  RewardPopUpText: {fileID: 1069043452}
+  CloseRewardPopUp: {fileID: 269971509}
 --- !u!1 &1482508310
 GameObject:
   m_ObjectHideFlags: 0
@@ -3250,7 +3268,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 83adda5581d799b45b6a61c8455330bf, type: 2}
   chestSlotPrefab: {fileID: 8874792869123287747, guid: 3ee7341bd70e2c3479659eb7d8d64c06, type: 3}
   chestSlotParent: {fileID: 151203186}
-  chestSlots: 5
+  chestSlots: 2
   currencyView: {fileID: 42208226}
   spawnView: {fileID: 250094530}
   popUpView: {fileID: 1469620586}
