@@ -23,7 +23,6 @@ public class UnlockingState: IState
     {
         GameService.Instance.UIService.GetPopUpController().OpenChestUnlockingPopUp();
         GameService.Instance.UIService.GetPopUpController().SetCurrentChestController(Owner);
-        //throw new NotImplementedException();
     }
 
     public void OnStateEnter()

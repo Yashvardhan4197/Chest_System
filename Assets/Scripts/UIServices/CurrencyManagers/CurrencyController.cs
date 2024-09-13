@@ -11,8 +11,8 @@ public class CurrencyController
     public CurrencyController(CurrencyView currencyView)
     {
         this.currencyView = currencyView;
-        SetCoinAmount(100);
-        SetGemAmount(10);
+        currencyView.SetController(this);
+        currencyView.SetStartingData();
     }
 
     public void SetCoinAmount(int coinAmount)
