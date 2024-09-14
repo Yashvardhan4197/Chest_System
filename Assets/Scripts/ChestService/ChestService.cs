@@ -1,15 +1,15 @@
 
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ChestService
 {
-    //private ChestController chestController;
     private Dictionary<ChestTypes, ChestScriptableObject> chestData=new Dictionary<ChestTypes, ChestScriptableObject>();
     private List<ChestView> ChestsSlots=new List<ChestView>();
     private List<ChestController> EarnedChests=new List<ChestController>();
-
+    private Queue<IState>QueueForChest=new Queue<IState>();
     public ChestService(List<ChestScriptableObject> chestSOList, int chestSlots, GameObject chestSlotPrefab, RectTransform ChestSlotParent)
     {
         SetChestData(chestSOList);
@@ -60,9 +60,70 @@ public class ChestService
         }
     }
 
-    //public ChestController GetChestController()=>chestController;
 
     public List<ChestController> ReturnChests() => EarnedChests;
+    public void AddToQueue(IState state)
+    {
+        if (state.currentChestState==ChestStates.UNLOCKINGQUEUE)
+        {
+            QueueForChest.Enqueue(state);
+            foreach(ChestController controller in ReturnChests())
+            {
+                if (controller.chestStateMachine.currentState.currentChestState == ChestStates.UNLOCKING)
+                {
+                    return;
+                }
+            }
+            QueueForChest.Peek().Owner.chestStateMachine.ChangeState(ChestStates.UNLOCKING);
+        }
+        
+    }
 
+    public void TransitionStatetoUnlocking()
+    {
+        while(QueueForChest.Count > 0&&QueueForChest.Peek().currentChestState!=ChestStates.UNLOCKINGQUEUE)
+        {
+            QueueForChest.Dequeue();
+        }
+        if(QueueForChest.Count ==0)
+        {
+            return;
+        }
+        QueueForChest.Peek().Owner.chestStateMachine.ChangeState(ChestStates.UNLOCKING);
+    }
+
+
+    public IState GetStateFromQueue()
+    {
+
+        return QueueForChest.Peek();
+    }
+    public bool IsQueueEmpty()
+    {
+        if(QueueForChest.Count == 0) return true;
+        return false;
+    }
+    public void RemoveTopFromQueue()
+    {
+        if (IsQueueEmpty())
+        {
+            return;
+        }
+        QueueForChest.Dequeue();
+        if (IsQueueEmpty()==false)
+        {
+            if (QueueForChest.Peek().Owner.chestStateMachine == null)
+            {
+                QueueForChest.Dequeue();
+                return;
+            }
+            if (QueueForChest.Peek().Owner.chestStateMachine.currentState.currentChestState == ChestStates.UNLOCKED)
+            {
+                QueueForChest.Dequeue();
+                return;
+            }
+            QueueForChest.Peek().Owner.chestStateMachine.ChangeState(ChestStates.UNLOCKING);
+        }
+    }
 
 }

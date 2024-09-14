@@ -27,28 +27,33 @@ public class CommandController
             {
                 topState=states.Pop();
             }
-            if (topState.Owner.chestStateMachine!=null)//topState.Owner.chestStateMachine.currentState.currentChestState != ChestStates.COLLECTED)
+            if (topState.Owner.chestStateMachine!=null)
             {
                 int currentGemAmount = GameService.Instance.UIService.GetCurrencyController().GemAmount;
                 currentGemAmount += topState.Owner.GetGemCurrentPrice();
                 GameService.Instance.UIService.GetCurrencyController().SetGemAmount(currentGemAmount);
                 if (topState.Owner.chestStateMachine.currentState.currentChestState != ChestStates.UNLOCKED)
                 {
-                    topState.Owner.chestStateMachine.ChangeState(topState.currentChestState);
+                    if(topState.Owner.chestStateMachine.currentState.currentChestState!=ChestStates.UNLOCKINGQUEUE)
+                        topState.Owner.chestStateMachine.ChangeState(topState.currentChestState);
+                    else
+                    {
+                        topState.Owner.chestStateMachine.ChangeState(ChestStates.LOCKED);
+                    }
                 }
                 else
                 {
-                    topState.Owner.SetCanOpen(false);
                     foreach(var state in GameService.Instance.chestService.ReturnChests())
                     {
                         if(state.chestStateMachine.currentState.currentChestState== ChestStates.UNLOCKING)
                         {
-                            //state.chestStateMachine.ChangeState(ChestStates.UNLOCKINGQUEUE);
                             topState.Owner.chestStateMachine.ChangeState(ChestStates.UNLOCKINGQUEUE);
+                            GameService.Instance.chestService.AddToQueue(topState.Owner.chestStateMachine.currentState);            
                             return;
                         }
                     }
-                    
+                    topState.Owner.chestStateMachine.ChangeState(topState.currentChestState);
+
                 }
             }
         }

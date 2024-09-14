@@ -19,7 +19,6 @@ public class ChestController
         chestStateMachine =new ChestStateMachine(this);
         chestStateMachine.ChangeState(ChestStates.LOCKED);
         CurrentTime = chestData.TimerValue;
-        //InitializeData();
     }
 
     public void SetTimer(TextMeshProUGUI timerUI, float timerTime)

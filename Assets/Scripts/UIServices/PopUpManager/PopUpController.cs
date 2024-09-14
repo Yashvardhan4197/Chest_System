@@ -89,13 +89,13 @@ public class PopUpController
 
     public void OnCoinsButtonClicked()
     {
-        //do this after implementing coins in chestcontroller
         int currentCoinAmount = GameService.Instance.UIService.GetCurrencyController().CoinAmount;
         if (chestController.chestData.ChestCoinPrice<= currentCoinAmount)
         {
             currentCoinAmount -= chestController.chestData.ChestCoinPrice;
             GameService.Instance.UIService.GetCurrencyController().SetCoinAmount(currentCoinAmount);
             chestController.chestStateMachine.ChangeState(ChestStates.UNLOCKINGQUEUE);
+            GameService.Instance.chestService.AddToQueue(chestController.chestStateMachine.currentState);
             CloseChestUnlockPopUp();
         }
     }
@@ -107,7 +107,6 @@ public class PopUpController
         {
             currentGemAmount-= chestController.GetGemCurrentPrice();
             GameService.Instance.UIService.GetCurrencyController().SetGemAmount(currentGemAmount);
-            //chestController.chestStateMachine.ChangeState(ChestStates.UNLOCKED);
             GameService.Instance.commandService.InvokeState(chestController.chestStateMachine.currentState);
             CloseChestUnlockingPopUp();
             CloseChestUnlockPopUp();

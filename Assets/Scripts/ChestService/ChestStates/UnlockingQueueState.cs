@@ -41,12 +41,5 @@ public class UnlockingQueueState : IState
 
     public void Update()
     {
-        if (Owner.GetCanOpen())
-        {
-            Owner.SetCanOpen(false);
-            stateMachine.ChangeState(ChestStates.UNLOCKING);
-        }
-
-        //throw new System.NotImplementedException();
     }
 }

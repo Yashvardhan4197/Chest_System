@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Padding:
     m_Left: -262
     m_Right: 0
-    m_Top: 37
+    m_Top: -87
     m_Bottom: 0
   m_ChildAlignment: 2
   m_Spacing: 123.49
@@ -493,7 +493,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 300}
+  m_SizeDelta: {x: 270.0693, y: 270.0693}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &250094526
 MonoBehaviour:
@@ -826,19 +826,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 269971510}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 328032973}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &269971510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1213,8 +1201,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.686798, y: 172.65674}
-  m_SizeDelta: {x: -94.29944, y: -854.7982}
+  m_AnchoredPosition: {x: 2.6867676, y: 82.52}
+  m_SizeDelta: {x: -94.2994, y: -674.53}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &485170890
 MonoBehaviour:
@@ -1262,7 +1250,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485170888}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -1418,7 +1406,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 600, y: 800}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1748,8 +1736,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 174.00006}
-  m_SizeDelta: {x: 714.0192, y: 574.5577}
+  m_AnchoredPosition: {x: 2.6885, y: 82.521}
+  m_SizeDelta: {x: 505.7, y: 391.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &797946265
 CanvasGroup:
@@ -1759,7 +1747,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 797946263}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -1838,7 +1826,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 719.09, y: -868}
+  m_AnchoredPosition: {x: 859.09, y: -1117}
   m_SizeDelta: {x: 81.5577, y: 72.4132}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &835841124
@@ -3002,7 +2990,7 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 45
+    m_Top: 155
     m_Bottom: 493
   m_ChildAlignment: 1
   m_Spacing: 0
@@ -3049,8 +3037,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000013351, y: -337.08548}
-  m_SizeDelta: {x: 719.74, y: 252.9653}
+  m_AnchoredPosition: {x: 21, y: -338}
+  m_SizeDelta: {x: 840.0222, y: 252.9653}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1320038395
 MonoBehaviour:
@@ -3559,7 +3547,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 83adda5581d799b45b6a61c8455330bf, type: 2}
   chestSlotPrefab: {fileID: 8874792869123287747, guid: 3ee7341bd70e2c3479659eb7d8d64c06, type: 3}
   chestSlotParent: {fileID: 151203186}
-  chestSlots: 10
+  chestSlots: 5
   currencyView: {fileID: 42208226}
   spawnView: {fileID: 250094530}
   popUpView: {fileID: 1469620586}
@@ -4173,8 +4161,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 174.00006}
-  m_SizeDelta: {x: 714.0192, y: 574.5577}
+  m_AnchoredPosition: {x: 2.6877, y: 82.519}
+  m_SizeDelta: {x: 505.7, y: 391.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1844779017
 MonoBehaviour:
@@ -4222,7 +4210,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1844779015}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0

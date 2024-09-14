@@ -98,6 +98,7 @@ public class CollectedState: IState
 
     public void OnStateExit()
     {
+        
         //throw new NotImplementedException();
     }
 

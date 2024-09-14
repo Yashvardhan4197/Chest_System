@@ -70,7 +70,6 @@ public class UnlockingState: IState
     {
         timer -= Time.deltaTime;
         Owner.SetCurrentTimer(timer);
-        //Owner.chestView.SetChestPrice(Owner.chestData.ChestCoinPrice.ToString(), Owner.CalculateGemPrice(timer));
     }
 
 }

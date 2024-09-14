@@ -38,7 +38,7 @@ public class UnlockedState: IState
     }
 
     private void CheckInChests()
-    {
+    {/*
         foreach(var chest in GameService.Instance.chestService.ReturnChests())
         {
             if (chest.chestStateMachine.currentState.currentChestState == ChestStates.UNLOCKING)
@@ -46,7 +46,13 @@ public class UnlockedState: IState
                 return;
             }
         }
-        Owner.SetCanOpen(true);
+        
+        Owner.SetCanOpen(true);*/
+        if (GameService.Instance.chestService.IsQueueEmpty()==false && GameService.Instance.chestService.GetStateFromQueue().Owner==Owner)
+        {
+            GameService.Instance.chestService.RemoveTopFromQueue();
+        }
+        GameService.Instance.chestService.TransitionStatetoUnlocking();
     }
 
     public void OnStateExit()
