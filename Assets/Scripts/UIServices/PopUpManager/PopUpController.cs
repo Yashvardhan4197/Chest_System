@@ -1,6 +1,7 @@
 
 using JetBrains.Annotations;
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class PopUpController
 {
     private PopUpView popUpView;
     private ChestController chestController;
+    private List<CanvasGroup> PopUpsList=new List<CanvasGroup>();
     public PopUpController(PopUpView popUpView)
     {
         this.popUpView = popUpView;
@@ -19,6 +21,13 @@ public class PopUpController
         popUp.alpha = 1;
         popUp.blocksRaycasts = true;
         popUp.interactable = true;
+        foreach (CanvasGroup item in PopUpsList)
+        {
+            if (item != popUp)
+            {
+                SetPopUpClose(item);
+            }
+        }
     }
 
     private void SetPopUpClose(CanvasGroup popUp)
@@ -111,4 +120,8 @@ public class PopUpController
         TextMeshProUGUI rewardPopUpText=popUpView.getRewardPopUpText();
         rewardPopUpText.text = "You Found " + coinAmount + " coins " + gemAmount + " gems in the chest";
     }
+
+    public void AddPopUps(CanvasGroup newPopUp)=>PopUpsList.Add(newPopUp);
+
 }
+

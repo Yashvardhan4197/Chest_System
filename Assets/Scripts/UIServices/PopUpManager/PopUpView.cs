@@ -35,6 +35,15 @@ public class PopUpView : MonoBehaviour
         CloseUnlockingPopUp.onClick.AddListener(CloseChestUnlockingSection);
 
         CloseRewardPopUp.onClick.AddListener(CloseRewardPopUpSection);
+
+    }
+
+    private void AddToPopUpList()
+    {
+        popUpController.AddPopUps(RewardPopUp);
+        popUpController.AddPopUps(ChestUnlockingPopUp);
+        popUpController.AddPopUps(ChestUnlockPopUp);
+        popUpController.AddPopUps(ChestAlertPopUp);
     }
 
     private void CloseRewardPopUpSection()
@@ -70,6 +79,7 @@ public class PopUpView : MonoBehaviour
     public void SetController(PopUpController popUpController)
     {
         this.popUpController = popUpController;
+        AddToPopUpList();
     }   
 
 

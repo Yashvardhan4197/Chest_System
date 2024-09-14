@@ -69,7 +69,8 @@ public class UnlockingState: IState
     private void StartTimer()
     {
         timer -= Time.deltaTime;
-        Owner.chestView.SetTimerValue(timer);
-        Owner.chestView.SetChestPrice(Owner.chestData.ChestCoinPrice.ToString(), Owner.CalculateGemPrice(timer));
+        Owner.SetCurrentTimer(timer);
+        //Owner.chestView.SetChestPrice(Owner.chestData.ChestCoinPrice.ToString(), Owner.CalculateGemPrice(timer));
     }
+
 }

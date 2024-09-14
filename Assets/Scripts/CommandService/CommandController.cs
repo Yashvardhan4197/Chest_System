@@ -43,10 +43,12 @@ public class CommandController
                     {
                         if(state.chestStateMachine.currentState.currentChestState== ChestStates.UNLOCKING)
                         {
-                            state.chestStateMachine.ChangeState(ChestStates.UNLOCKINGQUEUE);
+                            //state.chestStateMachine.ChangeState(ChestStates.UNLOCKINGQUEUE);
+                            topState.Owner.chestStateMachine.ChangeState(ChestStates.UNLOCKINGQUEUE);
+                            return;
                         }
                     }
-                    topState.Owner.chestStateMachine.ChangeState(ChestStates.UNLOCKING);
+                    
                 }
             }
         }

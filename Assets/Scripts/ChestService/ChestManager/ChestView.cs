@@ -12,7 +12,9 @@ public class ChestView : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerUI;
     [SerializeField] TextMeshProUGUI chestCoinPrice;
     [SerializeField] TextMeshProUGUI chestGemPrice;
+    [SerializeField] GameObject InQueueImg;
     [SerializeField] Button ChestButton;
+
     //private float timerTime;
     [HideInInspector] public ChestTypes chestType;
 
@@ -63,8 +65,7 @@ public class ChestView : MonoBehaviour
         chestController?.SetTimer(timerUI, timerValue);
     }
 
-    public void SetChestUnlocked()
-    {
+    public void SetInQueueText(bool set)=>InQueueImg.SetActive(set);
 
-    }
+
 }

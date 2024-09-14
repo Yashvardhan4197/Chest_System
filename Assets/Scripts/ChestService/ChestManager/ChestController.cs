@@ -8,6 +8,7 @@ public class ChestController
     public ChestStateMachine chestStateMachine;
     private TimeSpan chestTimeSpan;
     private int GemPrice;
+    private float CurrentTime;
 
     private static bool InQueue = true;
     public ChestController(ChestView chestView,ChestScriptableObject chestData)
@@ -17,6 +18,7 @@ public class ChestController
         chestView.SetController(this);
         chestStateMachine =new ChestStateMachine(this);
         chestStateMachine.ChangeState(ChestStates.LOCKED);
+        CurrentTime = chestData.TimerValue;
         //InitializeData();
     }
 
@@ -66,4 +68,11 @@ public class ChestController
         chestStateMachine = null;
         chestView.SetController(null);
     }
+    public void SetCurrentTimer(float currentTime)
+    {
+        CurrentTime = currentTime;
+        chestView.SetTimerValue(currentTime);
+        chestView.SetChestPrice(chestData.ChestCoinPrice.ToString(),CalculateGemPrice(CurrentTime));
+    }
+    public void UpdateCurrentTime()=> chestView.SetTimerValue(CurrentTime);
 }

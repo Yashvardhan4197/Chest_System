@@ -32,9 +32,21 @@ public class UnlockedState: IState
 
     public void OnStateEnter()
     {
-        Owner.SetCanOpen(true);
+        CheckInChests();
         InitializeData();
         Debug.Log("Unlocked State Reached");
+    }
+
+    private void CheckInChests()
+    {
+        foreach(var chest in GameService.Instance.chestService.ReturnChests())
+        {
+            if (chest.chestStateMachine.currentState.currentChestState == ChestStates.UNLOCKING)
+            {
+                return;
+            }
+        }
+        Owner.SetCanOpen(true);
     }
 
     public void OnStateExit()

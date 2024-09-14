@@ -17,5 +17,6 @@ MonoBehaviour:
   LockedChestSprite: {fileID: 21300000, guid: 06e824024aa0b4642b16952bee512d35, type: 3}
   UnlockingChestSprite: {fileID: 21300000, guid: cf109214673ce894b930aaeaaef50935, type: 3}
   UnlockedChestSprite: {fileID: 21300000, guid: 17f120431a79f0b41962addd901aed4b, type: 3}
+  UnlockingQueueSprite: {fileID: 21300000, guid: 4211aadefcaa2ca4c9236cc6963a1179, type: 3}
   TimerValue: 180
   ChestCoinPrice: 200
