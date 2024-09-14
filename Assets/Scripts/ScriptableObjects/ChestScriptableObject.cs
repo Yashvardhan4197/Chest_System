@@ -9,6 +9,7 @@ public class ChestScriptableObject : ScriptableObject
     public Sprite LockedChestSprite;
     public Sprite UnlockingChestSprite;
     public Sprite UnlockedChestSprite;
+    public Sprite UnlockingQueueSprite;
     public int TimerValue;
     public int ChestCoinPrice;
 }

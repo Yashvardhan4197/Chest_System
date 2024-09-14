@@ -9,7 +9,7 @@ public class ChestController
     private TimeSpan chestTimeSpan;
     private int GemPrice;
 
-    private static bool CanOpen = true;
+    private static bool InQueue = true;
     public ChestController(ChestView chestView,ChestScriptableObject chestData)
     {
         this.chestView = chestView;
@@ -54,10 +54,10 @@ public class ChestController
 
     public void SetCanOpen(bool canOpen)
     {
-        CanOpen = canOpen;
+        InQueue = canOpen;
     }
 
-    public bool GetCanOpen() => CanOpen;
+    public bool GetCanOpen() => InQueue;
 
     public int GetGemCurrentPrice()=>GemPrice;
 

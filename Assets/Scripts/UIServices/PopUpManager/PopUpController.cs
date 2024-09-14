@@ -86,7 +86,7 @@ public class PopUpController
         {
             currentCoinAmount -= chestController.chestData.ChestCoinPrice;
             GameService.Instance.UIService.GetCurrencyController().SetCoinAmount(currentCoinAmount);
-            chestController.chestStateMachine.ChangeState(ChestStates.UNLOCKING);
+            chestController.chestStateMachine.ChangeState(ChestStates.UNLOCKINGQUEUE);
             CloseChestUnlockPopUp();
         }
     }

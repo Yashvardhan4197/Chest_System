@@ -44,11 +44,8 @@ public class LockedState : IState
 
     public void OnButtonPressed()
     {
-        if (Owner.GetCanOpen())
-        {
             GameService.Instance.UIService.GetPopUpController().OpenChestUnlockPopUp();
             GameService.Instance.UIService.GetPopUpController().SetCurrentChestController(Owner);
-        }
         //stateMachine.ChangeState(ChestStates.UNLOCKING);
     }
 }
