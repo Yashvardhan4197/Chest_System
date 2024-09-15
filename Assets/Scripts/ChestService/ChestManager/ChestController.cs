@@ -9,8 +9,8 @@ public class ChestController
     private TimeSpan chestTimeSpan;
     private int GemPrice;
     private float CurrentTime;
-
     private static bool InQueue = true;
+
     public ChestController(ChestView chestView,ChestScriptableObject chestData)
     {
         this.chestView = chestView;
@@ -67,11 +67,13 @@ public class ChestController
         chestStateMachine = null;
         chestView.SetController(null);
     }
+
     public void SetCurrentTimer(float currentTime)
     {
         CurrentTime = currentTime;
         chestView.SetTimerValue(currentTime);
         chestView.SetChestPrice(chestData.ChestCoinPrice.ToString(),CalculateGemPrice(CurrentTime));
     }
+
     public void UpdateCurrentTime()=> chestView.SetTimerValue(CurrentTime);
 }

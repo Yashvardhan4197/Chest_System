@@ -3,15 +3,17 @@ using UnityEngine;
 using TMPro;
 public class CurrencyView : MonoBehaviour
 {
+    private CurrencyController currencyController;
     [SerializeField] TextMeshProUGUI coinAmountText;
     [SerializeField] TextMeshProUGUI gemAmountText;
     [SerializeField] int startingCoinAmount;
     [SerializeField] int startingGemAmount;
-    private CurrencyController currencyController;
+
     public void UpdateCoinAmountText(int coinAmount)
     {
         coinAmountText.text = coinAmount.ToString();
     }
+
     public void UpdateGemAmountText(int gemAmount)
     {
         gemAmountText.text = gemAmount.ToString();

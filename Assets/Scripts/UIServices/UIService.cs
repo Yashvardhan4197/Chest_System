@@ -5,6 +5,7 @@ public class UIService
     private CurrencyController currencyController;
     private SpawnController spawnController;
     private PopUpController popUpController;
+
     public UIService(CurrencyView currencyView,SpawnView spawnView,PopUpView popUpView)
     {
         currencyController=new CurrencyController(currencyView);

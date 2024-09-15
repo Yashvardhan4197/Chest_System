@@ -1,23 +1,22 @@
 
-using System;
-using System.Collections;
 using UnityEngine;
 
 public class UnlockingState: IState
 {
-    public ChestController Owner { get; set; }
-    private ChestStateMachine stateMachine;
-    public ChestStates currentChestState { get; set; }
     private float timer;
-    private bool timerRunning=true;
+    private bool timerRunning = true;
     private bool FirstTime = true;
     private float delaySound = 1;
     private float startSoundCount = 0;
+    public ChestController Owner { get; set; }
+    private ChestStateMachine stateMachine;
+    public ChestStates currentChestState { get; set; }
+    
     private void InitializeData()
     {
         Owner.chestView.SetChestImage(Owner.chestData.UnlockingChestSprite);
         Owner.chestView.SetChestName(Owner.chestData.ChestName);
-        Owner.chestView.chestType = Owner.chestData.ChestType;
+        Owner.chestView.SetChestType(Owner.chestData.ChestType);
         Owner.chestView.UpdateSlot();
         if (FirstTime)
         {

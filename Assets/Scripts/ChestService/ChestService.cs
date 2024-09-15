@@ -1,7 +1,6 @@
 
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ChestService
@@ -46,7 +45,7 @@ public class ChestService
         int emptySlotIndex = -1;
         for (int i = 0; i < ChestsSlots.Count; i++)
         {
-            if (ChestsSlots[i].chestType == ChestTypes.None)
+            if (ChestsSlots[i].GetChestType() == ChestTypes.None)
             {
                 emptySlotIndex = i;
                 break;
@@ -62,21 +61,17 @@ public class ChestService
 
 
     public List<ChestController> ReturnChests() => EarnedChests;
-    public void AddToQueue(IState state)
+    public void AddToQueue(ChestController chestController)
     {
-        if (state.currentChestState==ChestStates.UNLOCKINGQUEUE)
+        QueueForChest.Enqueue(chestController.chestStateMachine.currentState);
+        foreach(ChestController controller in ReturnChests())
         {
-            QueueForChest.Enqueue(state);
-            foreach(ChestController controller in ReturnChests())
+            if (controller.chestStateMachine.currentState.currentChestState == ChestStates.UNLOCKING)
             {
-                if (controller.chestStateMachine.currentState.currentChestState == ChestStates.UNLOCKING)
-                {
-                    return;
-                }
+                return;
             }
-            QueueForChest.Peek().Owner.chestStateMachine.ChangeState(ChestStates.UNLOCKING);
         }
-        
+        QueueForChest.Peek().Owner.chestStateMachine.ChangeState(ChestStates.UNLOCKING);
     }
 
     public void TransitionStatetoUnlocking()
@@ -85,7 +80,7 @@ public class ChestService
         {
             return;
         }
-        while(QueueForChest.Count > 0&&QueueForChest.Peek().currentChestState!=ChestStates.UNLOCKINGQUEUE)
+        while(QueueForChest.Count > 0&&QueueForChest.Peek().currentChestState!=ChestStates.UNLOCKINGQUEUE&& QueueForChest.Peek().currentChestState != ChestStates.UNLOCKING)
         {
             QueueForChest.Dequeue();
         }
@@ -96,17 +91,18 @@ public class ChestService
         QueueForChest.Peek().Owner.chestStateMachine.ChangeState(ChestStates.UNLOCKING);
     }
 
-
     public IState GetStateFromQueue()
     {
 
         return QueueForChest.Peek();
     }
+
     public bool IsQueueEmpty()
     {
         if(QueueForChest.Count == 0) return true;
         return false;
     }
+
     public void RemoveTopFromQueue()
     {
         if (IsQueueEmpty())
@@ -129,5 +125,4 @@ public class ChestService
             QueueForChest.Peek().Owner.chestStateMachine.ChangeState(ChestStates.UNLOCKING);
         }
     }
-
 }

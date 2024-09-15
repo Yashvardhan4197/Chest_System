@@ -8,6 +8,7 @@ public class SpawnController
         this.spawnView = spawnView;
         spawnView.SetController(this);
     }
+
     public void OnSpawnChestButtonClick()
     {
         if (GameService.Instance.ChestService.ReturnChests().Count < GameService.Instance.ChestSlots)

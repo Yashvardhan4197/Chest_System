@@ -1,13 +1,20 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager 
 {
-    AudioSource SFXsound;
+    private AudioSource SFXsound;
     private SoundTypes[] soundtypes;
 
+    private AudioClip GetAudioClip(Sound sound)
+    {
+        SoundTypes item = Array.Find(soundtypes, item => item.Sound == sound);
+        if (item != null)
+        {
+            return item.audioClip;
+        }
+        return null;
+    }
     public SoundManager(AudioSource sound, SoundTypes[] soundtypes)
     {
         SFXsound = sound;
@@ -21,16 +28,6 @@ public class SoundManager
         {
             SFXsound.PlayOneShot(clip);
         }
-    }
-
-    private AudioClip GetAudioClip(Sound sound)
-    {
-        SoundTypes item=Array.Find(soundtypes,item=>item.Sound==sound);
-        if(item != null )
-        {
-            return item.audioClip;
-        }
-        return null;
     }
 }
 

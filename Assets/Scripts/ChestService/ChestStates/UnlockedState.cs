@@ -21,7 +21,7 @@ public class UnlockedState: IState
         Owner.chestView.SetChestName(Owner.chestData.ChestName);
         Owner.chestView.SetTimerValue(0);
         Owner.chestView.SetChestPrice("0000","0000");
-        Owner.chestView.chestType = Owner.chestData.ChestType;
+        Owner.chestView.SetChestType(Owner.chestData.ChestType);
         Owner.chestView.UpdateSlot();
     }
     public void OnButtonPressed()

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ChestView : MonoBehaviour
 {
     private ChestController chestController=null;
+    private ChestTypes chestType;
     [SerializeField] CanvasGroup chestObjectCanvasGroup;
     [SerializeField] Image chestImage;
     [SerializeField] TextMeshProUGUI chestName;
@@ -14,10 +15,7 @@ public class ChestView : MonoBehaviour
     [SerializeField] TextMeshProUGUI chestGemPrice;
     [SerializeField] GameObject InQueueImg;
     [SerializeField] Button ChestButton;
-
-    //private float timerTime;
-    [HideInInspector] public ChestTypes chestType;
-
+    
     private void Start()
     {
         ResetSlot();
@@ -60,6 +58,7 @@ public class ChestView : MonoBehaviour
         chestCoinPrice.text = coinPrice;
         chestGemPrice.text = gemPrice;
     }
+
     public void SetTimerValue(float timerValue)
     {
         chestController?.SetTimer(timerUI, timerValue);
@@ -67,5 +66,8 @@ public class ChestView : MonoBehaviour
 
     public void SetInQueueText(bool set)=>InQueueImg.SetActive(set);
 
+    public void SetChestType(ChestTypes chestType)=>this.chestType = chestType;
+
+    public ChestTypes GetChestType() => chestType;
 
 }

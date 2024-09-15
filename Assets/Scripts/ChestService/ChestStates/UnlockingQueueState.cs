@@ -3,9 +3,8 @@ public class UnlockingQueueState : IState
 {
     public ChestController Owner { get; set; }
     public ChestStates currentChestState { get; set; }
-
     private ChestStateMachine stateMachine;
-    private float timer;
+
     public UnlockingQueueState(ChestStateMachine stateMachine, ChestStates currentChestState)
     {
         this.stateMachine = stateMachine;
@@ -30,7 +29,7 @@ public class UnlockingQueueState : IState
         Owner.chestView.SetChestImage(Owner.chestData.UnlockingQueueSprite);
         Owner.chestView.SetChestName(Owner.chestData.ChestName);
         Owner.chestView.SetChestPrice(Owner.chestData.ChestCoinPrice.ToString(), Owner.GetGemCurrentPrice().ToString());
-        Owner.chestView.chestType = Owner.chestData.ChestType;
+        Owner.chestView.SetChestType(Owner.chestData.ChestType);
         Owner.UpdateCurrentTime();
         Owner.chestView.UpdateSlot();
     }

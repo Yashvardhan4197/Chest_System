@@ -1,6 +1,4 @@
 
-using JetBrains.Annotations;
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -10,6 +8,7 @@ public class PopUpController
     private PopUpView popUpView;
     private ChestController chestController;
     private List<CanvasGroup> PopUpsList=new List<CanvasGroup>();
+
     public PopUpController(PopUpView popUpView)
     {
         this.popUpView = popUpView;
@@ -49,12 +48,12 @@ public class PopUpController
         SetPopUpOpen(popUp);
     }
 
-
     public void CloseChestFullAlertPopUp()
     {
         CanvasGroup popUp = popUpView.GetChestFullAlertPopUp();
         SetPopUpClose(popUp);
     }
+
     public void OpenChestFullAlertPopUp()
     {
         CanvasGroup popUp = popUpView.GetChestFullAlertPopUp();
@@ -95,7 +94,7 @@ public class PopUpController
             currentCoinAmount -= chestController.chestData.ChestCoinPrice;
             GameService.Instance.UIService.GetCurrencyController().SetCoinAmount(currentCoinAmount);
             chestController.chestStateMachine.ChangeState(ChestStates.UNLOCKINGQUEUE);
-            GameService.Instance.ChestService.AddToQueue(chestController.chestStateMachine.currentState);
+            GameService.Instance.ChestService.AddToQueue(chestController);
             CloseChestUnlockPopUp();
         }
         else

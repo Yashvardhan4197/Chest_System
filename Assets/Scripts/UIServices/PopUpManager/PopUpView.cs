@@ -82,7 +82,6 @@ public class PopUpView : MonoBehaviour
         AddToPopUpList();
     }   
 
-
     public CanvasGroup GetChestFullAlertPopUp() => ChestAlertPopUp;
 
     public CanvasGroup GetChestUnlockSectionPopUp() => ChestUnlockPopUp;

@@ -22,10 +22,9 @@ public class GameService : GenericMonoSingleton<GameService>
     //Services
     public UIService UIService { get; private set; }
     public ChestService ChestService { get; private set; }
-
     public SoundManager SoundManager { get; private set; }
-
     public CommandController commandService { get; private set; }
+
     private void Start()
     {
         UIService=new UIService(currencyView,spawnView,popUpView);

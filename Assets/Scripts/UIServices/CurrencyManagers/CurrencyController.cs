@@ -2,12 +2,12 @@
 public class CurrencyController
 {
     private CurrencyView currencyView;
-
     private int coinAmount;
     private int gemAmount;
 
     public int CoinAmount { get { return coinAmount; } }
     public int GemAmount { get { return gemAmount; } }
+
     public CurrencyController(CurrencyView currencyView)
     {
         this.currencyView = currencyView;
@@ -26,7 +26,4 @@ public class CurrencyController
         this.gemAmount = gemAmount;
         currencyView.UpdateGemAmountText(gemAmount);
     }
-
-
-
 }

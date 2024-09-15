@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 public class LockedState : IState
 {
     public ChestController Owner { get; set; }
@@ -28,7 +23,7 @@ public class LockedState : IState
         Owner.chestView.SetChestName(Owner.chestData.ChestName);
         Owner.chestView.SetTimerValue(Owner.chestData.TimerValue);
         Owner.chestView.SetChestPrice(Owner.chestData.ChestCoinPrice.ToString(),Owner.CalculateGemPrice(Owner.chestData.TimerValue));
-        Owner.chestView.chestType = Owner.chestData.ChestType;
+        Owner.chestView.SetChestType(Owner.chestData.ChestType);
         Owner.chestView.UpdateSlot();
     }
 
@@ -46,6 +41,5 @@ public class LockedState : IState
     {
             GameService.Instance.UIService.GetPopUpController().OpenChestUnlockPopUp();
             GameService.Instance.UIService.GetPopUpController().SetCurrentChestController(Owner);
-        //stateMachine.ChangeState(ChestStates.UNLOCKING);
     }
 }

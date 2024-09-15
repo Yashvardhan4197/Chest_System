@@ -4,22 +4,16 @@ using UnityEngine;
 
 public class CollectedState: IState
 {
+    private ChestStateMachine stateMachine;
+    private int coinReward = 0;
+    private int gemReward = 0;
     public ChestController Owner { get; set; }
     public ChestStates currentChestState { get; set; }
-    private ChestStateMachine stateMachine;
-    private int coinReward=0;
-    private int gemReward=0;
-
+    
     public CollectedState(ChestStateMachine stateMachine, ChestStates chestState)
     {
         this.stateMachine = stateMachine;
         currentChestState = chestState;
-    }
-
-    public void OnButtonPressed()
-    {
-        
-        //throw new NotImplementedException();
     }
 
     private void DestroyOwner()
@@ -94,7 +88,6 @@ public class CollectedState: IState
         AddReward();
         DestroyOwner();
         GameService.Instance.SoundManager.PlaySound(Sound.COLLECTED);
-        //throw new NotImplementedException();
     }
 
     public void OnStateExit()
@@ -105,6 +98,12 @@ public class CollectedState: IState
 
     public void Update()
     {
+        //throw new NotImplementedException();
+    }
+
+    public void OnButtonPressed()
+    {
+
         //throw new NotImplementedException();
     }
 }
