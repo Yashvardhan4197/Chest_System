@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class UnlockingState: IState
@@ -10,7 +11,8 @@ public class UnlockingState: IState
     private float timer;
     private bool timerRunning=true;
     private bool FirstTime = true;
-
+    private float delaySound = 1;
+    private float startSoundCount = 0;
     private void InitializeData()
     {
         Owner.chestView.SetChestImage(Owner.chestData.UnlockingChestSprite);
@@ -43,6 +45,8 @@ public class UnlockingState: IState
         InitializeData();
         Owner.SetCanOpen(false);
         timerRunning =true;
+        GameService.Instance.SoundManager.PlaySound(Sound.UNLOCKING_TIMER);
+
     }
 
     public void OnStateExit()
@@ -70,6 +74,12 @@ public class UnlockingState: IState
     {
         timer -= Time.deltaTime;
         Owner.SetCurrentTimer(timer);
+        startSoundCount += Time.deltaTime;
+        if (startSoundCount >= delaySound)
+        {
+            startSoundCount = 0;
+            GameService.Instance.SoundManager.PlaySound(Sound.UNLOCKING_TIMER);
+        }
     }
 
 }

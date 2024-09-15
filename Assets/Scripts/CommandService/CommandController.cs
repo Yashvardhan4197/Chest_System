@@ -32,6 +32,7 @@ public class CommandController
                 int currentGemAmount = GameService.Instance.UIService.GetCurrencyController().GemAmount;
                 currentGemAmount += topState.Owner.GetGemCurrentPrice();
                 GameService.Instance.UIService.GetCurrencyController().SetGemAmount(currentGemAmount);
+                GameService.Instance.SoundManager.PlaySound(Sound.UNDO);
                 if (topState.Owner.chestStateMachine.currentState.currentChestState != ChestStates.UNLOCKED)
                 {
                     if(topState.Owner.chestStateMachine.currentState.currentChestState!=ChestStates.UNLOCKINGQUEUE)
@@ -43,12 +44,12 @@ public class CommandController
                 }
                 else
                 {
-                    foreach(var state in GameService.Instance.chestService.ReturnChests())
+                    foreach(var state in GameService.Instance.ChestService.ReturnChests())
                     {
                         if(state.chestStateMachine.currentState.currentChestState== ChestStates.UNLOCKING)
                         {
                             topState.Owner.chestStateMachine.ChangeState(ChestStates.UNLOCKINGQUEUE);
-                            GameService.Instance.chestService.AddToQueue(topState.Owner.chestStateMachine.currentState);            
+                            GameService.Instance.ChestService.AddToQueue(topState.Owner.chestStateMachine.currentState);            
                             return;
                         }
                     }

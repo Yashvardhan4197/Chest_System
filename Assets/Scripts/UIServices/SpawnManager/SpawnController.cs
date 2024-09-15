@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public class SpawnController
 {
@@ -14,13 +10,15 @@ public class SpawnController
     }
     public void OnSpawnChestButtonClick()
     {
-        if (GameService.Instance.chestService.ReturnChests().Count < GameService.Instance.ChestSlots)
+        if (GameService.Instance.ChestService.ReturnChests().Count < GameService.Instance.ChestSlots)
         {
-            GameService.Instance.chestService.SpawnChest();
+            GameService.Instance.ChestService.SpawnChest();
+            GameService.Instance.SoundManager.PlaySound(Sound.SPAWNED);
         }
         else
         {
             GameService.Instance.UIService.GetPopUpController().OpenChestFullAlertPopUp();
+            GameService.Instance.SoundManager.PlaySound(Sound.REJECT);
         }
     }
 }

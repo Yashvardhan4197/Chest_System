@@ -95,8 +95,12 @@ public class PopUpController
             currentCoinAmount -= chestController.chestData.ChestCoinPrice;
             GameService.Instance.UIService.GetCurrencyController().SetCoinAmount(currentCoinAmount);
             chestController.chestStateMachine.ChangeState(ChestStates.UNLOCKINGQUEUE);
-            GameService.Instance.chestService.AddToQueue(chestController.chestStateMachine.currentState);
+            GameService.Instance.ChestService.AddToQueue(chestController.chestStateMachine.currentState);
             CloseChestUnlockPopUp();
+        }
+        else
+        {
+            GameService.Instance.SoundManager.PlaySound(Sound.REJECT);
         }
     }
 
@@ -110,7 +114,10 @@ public class PopUpController
             GameService.Instance.commandService.InvokeState(chestController.chestStateMachine.currentState);
             CloseChestUnlockingPopUp();
             CloseChestUnlockPopUp();
-
+        }
+        else
+        {
+            GameService.Instance.SoundManager.PlaySound(Sound.REJECT);
         }
     }
 

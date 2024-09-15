@@ -22,6 +22,7 @@ public class UnlockingQueueState : IState
     {
         InitializeData();
         Owner.chestView.SetInQueueText(true);
+        GameService.Instance.SoundManager.PlaySound(Sound.UNLOCKING_QUEUE);
     }
 
     private void InitializeData()

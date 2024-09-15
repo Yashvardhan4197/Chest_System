@@ -17,6 +17,7 @@ public class SpawnView : MonoBehaviour
     private void SpawnChest()
     {
         spawnController.OnSpawnChestButtonClick();
+        
     }
 
     public void SetController(SpawnController spawnController)=>this.spawnController=spawnController;

@@ -10,6 +10,8 @@ public class GameService : GenericMonoSingleton<GameService>
     [SerializeField] GameObject chestSlotPrefab;
     [SerializeField] RectTransform chestSlotParent;
     [SerializeField] int chestSlots;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] SoundTypes[] soundTypes;
     public int ChestSlots { get { return chestSlots; } }
 
     //Views
@@ -19,13 +21,16 @@ public class GameService : GenericMonoSingleton<GameService>
     [SerializeField] CommandView commandView;
     //Services
     public UIService UIService { get; private set; }
-    public ChestService chestService { get; private set; }
+    public ChestService ChestService { get; private set; }
+
+    public SoundManager SoundManager { get; private set; }
 
     public CommandController commandService { get; private set; }
     private void Start()
     {
         UIService=new UIService(currencyView,spawnView,popUpView);
-        chestService = new ChestService(chestTypeData,chestSlots,chestSlotPrefab,chestSlotParent);
+        ChestService = new ChestService(chestTypeData,chestSlots,chestSlotPrefab,chestSlotParent);
         commandService = new CommandController(commandView);
+        SoundManager = new SoundManager(audioSource, soundTypes);
     }
 }

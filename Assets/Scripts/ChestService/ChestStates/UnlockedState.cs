@@ -35,24 +35,17 @@ public class UnlockedState: IState
         CheckInChests();
         InitializeData();
         Debug.Log("Unlocked State Reached");
+        GameService.Instance.SoundManager.PlaySound(Sound.UNLOCKED);
     }
 
     private void CheckInChests()
-    {/*
-        foreach(var chest in GameService.Instance.chestService.ReturnChests())
+    {
+        if (GameService.Instance.ChestService.IsQueueEmpty()==false && GameService.Instance.ChestService.GetStateFromQueue().Owner==Owner)
         {
-            if (chest.chestStateMachine.currentState.currentChestState == ChestStates.UNLOCKING)
-            {
-                return;
-            }
+            GameService.Instance.ChestService.RemoveTopFromQueue();
         }
-        
-        Owner.SetCanOpen(true);*/
-        if (GameService.Instance.chestService.IsQueueEmpty()==false && GameService.Instance.chestService.GetStateFromQueue().Owner==Owner)
-        {
-            GameService.Instance.chestService.RemoveTopFromQueue();
-        }
-        GameService.Instance.chestService.TransitionStatetoUnlocking();
+
+        GameService.Instance.ChestService.TransitionStatetoUnlocking();
     }
 
     public void OnStateExit()

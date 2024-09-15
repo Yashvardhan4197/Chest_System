@@ -81,6 +81,10 @@ public class ChestService
 
     public void TransitionStatetoUnlocking()
     {
+        if(QueueForChest.Count > 0&& QueueForChest.Peek().currentChestState == ChestStates.UNLOCKING)
+        {
+            return;
+        }
         while(QueueForChest.Count > 0&&QueueForChest.Peek().currentChestState!=ChestStates.UNLOCKINGQUEUE)
         {
             QueueForChest.Dequeue();

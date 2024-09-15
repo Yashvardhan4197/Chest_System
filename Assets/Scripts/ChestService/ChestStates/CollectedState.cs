@@ -25,7 +25,7 @@ public class CollectedState: IState
     private void DestroyOwner()
     {
         Owner.chestView.ResetSlot();
-        GameService.Instance.chestService.ReturnChests().Remove(Owner);
+        GameService.Instance.ChestService.ReturnChests().Remove(Owner);
         Owner.DestroyController();
     }
 
@@ -93,6 +93,7 @@ public class CollectedState: IState
         Debug.Log("Reached collectedState");
         AddReward();
         DestroyOwner();
+        GameService.Instance.SoundManager.PlaySound(Sound.COLLECTED);
         //throw new NotImplementedException();
     }
 
