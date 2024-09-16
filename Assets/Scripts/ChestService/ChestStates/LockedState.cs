@@ -2,13 +2,11 @@
 public class LockedState : IState
 {
     public ChestController Owner { get; set; }
-    private ChestStateMachine stateMachine;
     public ChestStates currentChestState { get; set; }
 
 
-    public LockedState(ChestStateMachine chestStateMachine,ChestStates chestState)
+    public LockedState(ChestStates chestState)
     {
-        stateMachine = chestStateMachine;
         currentChestState = chestState;
     }
 
@@ -19,12 +17,12 @@ public class LockedState : IState
 
     private void InitializeData()
     {
-        Owner.chestView.SetChestImage(Owner.chestData.LockedChestSprite);
-        Owner.chestView.SetChestName(Owner.chestData.ChestName);
-        Owner.chestView.SetTimerValue(Owner.chestData.TimerValue);
-        Owner.chestView.SetChestPrice(Owner.chestData.ChestCoinPrice.ToString(),Owner.CalculateGemPrice(Owner.chestData.TimerValue));
-        Owner.chestView.SetChestType(Owner.chestData.ChestType);
-        Owner.chestView.UpdateSlot();
+        Owner.SetChestImage(Owner.chestData.LockedChestSprite);
+        Owner.SetChestName(Owner.chestData.ChestName);
+        Owner.SetTimerValue(Owner.chestData.TimerValue);
+        Owner.SetChestPrice(Owner.chestData.ChestCoinPrice.ToString(),Owner.CalculateGemPrice(Owner.chestData.TimerValue));
+        Owner.SetChestType(Owner.chestData.ChestType);
+        Owner.UpdateSlot();
     }
 
     public void OnStateExit()

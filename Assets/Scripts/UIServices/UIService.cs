@@ -6,9 +6,9 @@ public class UIService
     private SpawnController spawnController;
     private PopUpController popUpController;
 
-    public UIService(CurrencyView currencyView,SpawnView spawnView,PopUpView popUpView)
+    public UIService(CurrencyView currencyView,SpawnView spawnView,PopUpView popUpView,int startingCoinAmount,int startingGemAmount)
     {
-        currencyController=new CurrencyController(currencyView);
+        currencyController=new CurrencyController(currencyView,startingCoinAmount,startingGemAmount);
         spawnController = new SpawnController(spawnView);
         popUpController=new PopUpController(popUpView);
     }

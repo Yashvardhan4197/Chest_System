@@ -3,11 +3,9 @@ public class UnlockingQueueState : IState
 {
     public ChestController Owner { get; set; }
     public ChestStates currentChestState { get; set; }
-    private ChestStateMachine stateMachine;
 
-    public UnlockingQueueState(ChestStateMachine stateMachine, ChestStates currentChestState)
+    public UnlockingQueueState(ChestStates currentChestState)
     {
-        this.stateMachine = stateMachine;
         this.currentChestState = currentChestState;
     }
 
@@ -20,23 +18,23 @@ public class UnlockingQueueState : IState
     public void OnStateEnter()
     {
         InitializeData();
-        Owner.chestView.SetInQueueText(true);
+        Owner.SetInQueueText(true);
         GameService.Instance.SoundManager.PlaySound(Sound.UNLOCKING_QUEUE);
     }
 
     private void InitializeData()
     {
-        Owner.chestView.SetChestImage(Owner.chestData.UnlockingQueueSprite);
-        Owner.chestView.SetChestName(Owner.chestData.ChestName);
-        Owner.chestView.SetChestPrice(Owner.chestData.ChestCoinPrice.ToString(), Owner.GetGemCurrentPrice().ToString());
-        Owner.chestView.SetChestType(Owner.chestData.ChestType);
+        Owner.SetChestImage(Owner.chestData.UnlockingQueueSprite);
+        Owner.SetChestName(Owner.chestData.ChestName);
+        Owner.SetChestPrice(Owner.chestData.ChestCoinPrice.ToString(), Owner.GetGemCurrentPrice().ToString());
+        Owner.SetChestType(Owner.chestData.ChestType);
         Owner.UpdateCurrentTime();
-        Owner.chestView.UpdateSlot();
+        Owner.UpdateSlot();
     }
 
     public void OnStateExit()
     {
-        Owner.chestView.SetInQueueText(false);
+        Owner.SetInQueueText(false);
     }
 
     public void Update()

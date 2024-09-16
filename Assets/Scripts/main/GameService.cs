@@ -12,6 +12,8 @@ public class GameService : GenericMonoSingleton<GameService>
     [SerializeField] int chestSlots;
     [SerializeField] AudioSource audioSource;
     [SerializeField] SoundTypes[] soundTypes;
+    [SerializeField] int StartingCoinAmount;
+    [SerializeField] int StartingGemAmount;
     public int ChestSlots { get { return chestSlots; } }
 
     //Views
@@ -27,7 +29,7 @@ public class GameService : GenericMonoSingleton<GameService>
 
     private void Start()
     {
-        UIService=new UIService(currencyView,spawnView,popUpView);
+        UIService=new UIService(currencyView,spawnView,popUpView,StartingCoinAmount,StartingGemAmount);
         ChestService = new ChestService(chestTypeData,chestSlots,chestSlotPrefab,chestSlotParent);
         commandService = new CommandController(commandView);
         SoundManager = new SoundManager(audioSource, soundTypes);

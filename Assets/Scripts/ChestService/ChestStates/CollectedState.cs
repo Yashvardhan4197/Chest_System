@@ -1,24 +1,21 @@
-using System;
-using Unity.VisualScripting;
+
 using UnityEngine;
 
 public class CollectedState: IState
 {
-    private ChestStateMachine stateMachine;
     private int coinReward = 0;
     private int gemReward = 0;
     public ChestController Owner { get; set; }
     public ChestStates currentChestState { get; set; }
     
-    public CollectedState(ChestStateMachine stateMachine, ChestStates chestState)
+    public CollectedState(ChestStates chestState)
     {
-        this.stateMachine = stateMachine;
         currentChestState = chestState;
     }
 
     private void DestroyOwner()
     {
-        Owner.chestView.ResetSlot();
+        Owner.ResetSlot();
         GameService.Instance.ChestService.ReturnChests().Remove(Owner);
         Owner.DestroyController();
     }
@@ -84,7 +81,6 @@ public class CollectedState: IState
 
     public void OnStateEnter()
     {
-        Debug.Log("Reached collectedState");
         AddReward();
         DestroyOwner();
         GameService.Instance.SoundManager.PlaySound(Sound.COLLECTED);

@@ -17,12 +17,12 @@ public class UnlockedState: IState
 
     private void InitializeData()
     {
-        Owner.chestView.SetChestImage(Owner.chestData.UnlockedChestSprite);
-        Owner.chestView.SetChestName(Owner.chestData.ChestName);
-        Owner.chestView.SetTimerValue(0);
-        Owner.chestView.SetChestPrice("0000","0000");
-        Owner.chestView.SetChestType(Owner.chestData.ChestType);
-        Owner.chestView.UpdateSlot();
+        Owner.SetChestImage(Owner.chestData.UnlockedChestSprite);
+        Owner.SetChestName(Owner.chestData.ChestName);
+        Owner.SetTimerValue(0);
+        Owner.SetChestPrice("0000","0000");
+        Owner.SetChestType(Owner.chestData.ChestType);
+        Owner.UpdateSlot();
     }
     public void OnButtonPressed()
     {
@@ -34,7 +34,6 @@ public class UnlockedState: IState
     {
         CheckInChests();
         InitializeData();
-        Debug.Log("Unlocked State Reached");
         GameService.Instance.SoundManager.PlaySound(Sound.UNLOCKED);
     }
 

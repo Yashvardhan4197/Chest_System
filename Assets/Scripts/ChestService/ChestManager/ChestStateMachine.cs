@@ -1,7 +1,5 @@
 ﻿
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class ChestStateMachine
 {
@@ -13,16 +11,15 @@ public class ChestStateMachine
         this.owner = owner;
         CreateStates();
         SetOwner();
-
     }
 
     public void CreateStates()
     {
-        States.Add(ChestStates.LOCKED,new LockedState(this,ChestStates.LOCKED));
+        States.Add(ChestStates.LOCKED,new LockedState(ChestStates.LOCKED));
         States.Add(ChestStates.UNLOCKING,new UnlockingState(this,ChestStates.UNLOCKING));
         States.Add(ChestStates.UNLOCKED,new UnlockedState(this,ChestStates.UNLOCKED));
-        States.Add(ChestStates.COLLECTED,new CollectedState(this,ChestStates.COLLECTED));
-        States.Add(ChestStates.UNLOCKINGQUEUE, new UnlockingQueueState(this, ChestStates.UNLOCKINGQUEUE));
+        States.Add(ChestStates.COLLECTED,new CollectedState(ChestStates.COLLECTED));
+        States.Add(ChestStates.UNLOCKINGQUEUE, new UnlockingQueueState(ChestStates.UNLOCKINGQUEUE));
     }
 
     private void SetOwner()
@@ -44,5 +41,4 @@ public class ChestStateMachine
         currentState = States[newState];
         currentState?.OnStateEnter();
     }
-
 }

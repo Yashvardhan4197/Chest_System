@@ -1,16 +1,17 @@
 using System;
 using TMPro;
+using UnityEngine;
 
 public class ChestController
 {
-    public ChestView chestView;
-    public ChestScriptableObject chestData;
-    public ChestStateMachine chestStateMachine;
+    private ChestView chestView;
     private TimeSpan chestTimeSpan;
     private int GemPrice;
     private float CurrentTime;
     private static bool InQueue = true;
-
+    public ChestScriptableObject chestData;
+    public ChestStateMachine chestStateMachine;
+    
     public ChestController(ChestView chestView,ChestScriptableObject chestData)
     {
         this.chestView = chestView;
@@ -76,4 +77,44 @@ public class ChestController
     }
 
     public void UpdateCurrentTime()=> chestView.SetTimerValue(CurrentTime);
+
+    internal void SetChestImage(Sprite lockedChestSprite)
+    {
+        chestView.SetChestImage(lockedChestSprite);
+    }
+
+    internal void SetChestName(string chestName)
+    {
+        chestView.SetChestName(chestName);
+    }
+
+    internal void SetTimerValue(int timerValue)
+    {
+        chestView.SetTimerValue((int)timerValue);
+    }
+
+    internal void SetChestPrice(string v1, string v2)
+    {
+        chestView.SetChestPrice(v1, v2);
+    }
+
+    internal void SetChestType(ChestTypes chestType)
+    {
+        chestView.SetChestType(chestType);
+    }
+
+    internal void UpdateSlot()
+    {
+        chestView.UpdateSlot();
+    }
+
+    internal void ResetSlot()
+    {
+        chestView.ResetSlot();
+    }
+
+    internal void SetInQueueText(bool v)
+    {
+        chestView.SetInQueueText(v);
+    }
 }

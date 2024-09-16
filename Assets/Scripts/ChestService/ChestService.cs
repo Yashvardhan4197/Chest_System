@@ -59,8 +59,8 @@ public class ChestService
         }
     }
 
-
     public List<ChestController> ReturnChests() => EarnedChests;
+
     public void AddToQueue(ChestController chestController)
     {
         QueueForChest.Enqueue(chestController.chestStateMachine.currentState);

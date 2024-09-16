@@ -14,10 +14,10 @@ public class UnlockingState: IState
     
     private void InitializeData()
     {
-        Owner.chestView.SetChestImage(Owner.chestData.UnlockingChestSprite);
-        Owner.chestView.SetChestName(Owner.chestData.ChestName);
-        Owner.chestView.SetChestType(Owner.chestData.ChestType);
-        Owner.chestView.UpdateSlot();
+        Owner.SetChestImage(Owner.chestData.UnlockingChestSprite);
+        Owner.SetChestName(Owner.chestData.ChestName);
+        Owner.SetChestType(Owner.chestData.ChestType);
+        Owner.UpdateSlot();
         if (FirstTime)
         {
             timer = Owner.chestData.TimerValue;
