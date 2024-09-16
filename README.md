@@ -19,9 +19,11 @@ This project aims to recreate the a Chest System using various design patterns i
 
 ## PROJECT SCREENSHOTS
 
-<img src="https://github.com/user-attachments/assets/c5377563-533a-4c22-b605-f2d7d2ca32bb" alt="Screenshot 2024-09-16 200329" width="400">
-<img src="https://github.com/user-attachments/assets/e1e13b7a-6627-4ca1-98ad-884bb893229a" alt="Screenshot 2024-09-16 200329" width="400">
-<img src="https://github.com/user-attachments/assets/67475ab5-a955-43c6-be6f-8d27432ae597" alt="Screenshot 2024-09-16 200329" width="400">
+<img src="https://github.com/user-attachments/assets/c5377563-533a-4c22-b605-f2d7d2ca32bb" alt="Screenshot 2024-09-16 200329" width="400" height="600" style="margin: 20px;">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/user-attachments/assets/e1e13b7a-6627-4ca1-98ad-884bb893229a" alt="Screenshot 2024-09-16 200329" width="400" height="600">
+<br><br>
+<img src="https://github.com/user-attachments/assets/67475ab5-a955-43c6-be6f-8d27432ae597" alt="Screenshot 2024-09-16 200329" width="400" height="600">
 
 ---
 
