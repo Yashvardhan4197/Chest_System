@@ -1,4 +1,4 @@
-# Game-Inventory-System
+# CHEST-SYSTEM
 This project aims to recreate the a Chest System using various design patterns in code.
 ---
 
@@ -17,5 +17,11 @@ This project aims to recreate the a Chest System using various design patterns i
  - **Services**          : Communicate with each other using A Service Locator to perform operations. e.g CommandService, ChestService, PopupService, AudioService etc.
 ---
 
+## PROJECT SCREENSHOTS
+![Screenshot 2024-09-16 200329](https://github.com/user-attachments/assets/c5377563-533a-4c22-b605-f2d7d2ca32bb)
+![Screenshot 2024-09-16 200349](https://github.com/user-attachments/assets/e1e13b7a-6627-4ca1-98ad-884bb893229a)
+![Screenshot 2024-09-16 200428](https://github.com/user-attachments/assets/67475ab5-a955-43c6-be6f-8d27432ae597)
+---
 
-### WorkFlow Architecture
+## GamePlay Video
+https://github.com/user-attachments/assets/7e10f6c3-83b1-4eec-a8bf-0cc486d0d880
